@@ -1,5 +1,4 @@
 
-
 let ApiRoot = 'https://api.github.com/'
 let AuthedUsername = 'wadeanthony0100'
 let AuthedUser = {}
@@ -16,7 +15,7 @@ function getGithubUserJson(callback){
 
 getGithubUserJson((val) => {
   AuthedUser = JSON.parse(val);
-  console.log(AuthedUser['name']);
+  //console.log(AuthedUser['name']);
 });
 
 function emptyField(){
