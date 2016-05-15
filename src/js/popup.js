@@ -1,3 +1,4 @@
+'use strict';
 
 let ApiRoot = 'https://api.github.com/'
 let AuthedUsername = 'wadeanthony0100'
@@ -21,3 +22,5 @@ getGithubUserJson((val) => {
 function emptyField(){
   document.getElementById('authed-user').value = '';
 }
+
+
