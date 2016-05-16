@@ -1,3 +1,4 @@
+'use strict';
 
 function storeUserData(username, callback){
   chrome.storage.sync.set({'username':username}, function(){
@@ -29,7 +30,7 @@ function addRepoToBookmarks(repo, callback){
 }
 
 // TODO 
-function removeRepoFromBookmarks(repo, callback){}
+// function removeRepoFromBookmarks(repo, callback){}
 
 function getAllBookmarks(callback){
   chrome.storage.sync.get('repos', function(val){

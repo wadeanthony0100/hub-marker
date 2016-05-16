@@ -1,6 +1,14 @@
-var gulp = require("gulp");
-var babel = require("gulp-babel");
+var gulp = require('gulp');
+var browserify = require('browserify');
+var babel = require('gulp-babel');
 var flatten = require('gulp-flatten');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var gutil = require('gulp-util');
+var uglify = require('gulp-uglify');
+var sourcemaps = require('gulp-sourcemaps');
+var reactify = require('reactify');
+var handleErrors = require('./handle-errors');
 
 var paths = {
   build: {
@@ -21,9 +29,22 @@ var paths = {
 gulp.task('build', ['build:scripts', 'build:css', 'build:html', 'build:images', 'build:chrome']);
 
 gulp.task('build:scripts',  () => {
-  return gulp.src(paths.source.scripts)
+  var b = browserify({
+    entries: './src/js/main.jsx',
+    debug: true,
+    // defining transforms here will avoid crashing your stream
+    transform: [reactify, {"es6": true}]
+  })
+  .bundle()
+  .on('error', handleErrors);
+
+  return b.bundle()
+    .pipe(source(paths.source.scripts))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(babel())
     .pipe(flatten())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(paths.build.stylesheets));
 });
 
