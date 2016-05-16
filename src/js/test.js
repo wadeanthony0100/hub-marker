@@ -1,7 +1,8 @@
+
 //start by dropping all persistent data
 dropAllBookmarks(function(){
 
-  storeUserData("wadeanthony0100", function(){
+ storeUserData("wadeanthony0100", function(){
     getUsername(function(val){
       console.log('got username: ' + val);
     });
