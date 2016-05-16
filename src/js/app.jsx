@@ -4,7 +4,7 @@ import Header from './components/header';
 
 window.onload = () =>  {
 	ReactDOM.render(
-    <header></header>
+    <Header username='wad'></Header>
     ,document.getElementById('app')
 	);
 };
