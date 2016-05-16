@@ -1,5 +1,6 @@
 var gulp = require("gulp");
 var babel = require("gulp-babel");
+var flatten = require('gulp-flatten');
 
 var paths = {
   build: {
@@ -20,9 +21,10 @@ var paths = {
 gulp.task('build', ['build:scripts', 'build:css', 'build:html', 'build:images', 'build:chrome']);
 
 gulp.task('build:scripts',  () => {
-  return gulp.src('src/js/*')
+  return gulp.src(paths.source.scripts)
     .pipe(babel())
-    .pipe(gulp.dest('dist'));
+    .pipe(flatten())
+    .pipe(gulp.dest(paths.build.stylesheets));
 });
 
 gulp.task('build:css', () => {

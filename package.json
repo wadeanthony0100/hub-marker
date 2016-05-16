@@ -4,7 +4,8 @@
   "description": "",
   "main": "popup.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build; gulp",
+    "watch": "gulp"
   },
   "repository": {
     "type": "git",
@@ -16,10 +17,6 @@
     "url": "https://github.com/wadeanthony0100/hub-marker/issues"
   },
   "homepage": "https://github.com/wadeanthony0100/hub-marker#readme",
-  "scripts": {
-    "build": "gulp build; gulp",
-    "watch": "gulp"
-  },
   "dependencies": {
     "babel-cli": "^6.5.1",
     "babel-core": "^6.5.1",
@@ -30,7 +27,8 @@
     "browserify": "^13.0.0",
     "express": "^4.13.3",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2"
+    "gulp-babel": "^6.1.2",
+    "gulp-flatten": "^0.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",
