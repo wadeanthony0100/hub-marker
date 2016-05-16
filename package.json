@@ -6,7 +6,6 @@
   "scripts": {
     "build": "gulp build; gulp",
     "watch": "gulp",
-    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -31,7 +30,10 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-flatten": "^0.2.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "phantomjs": "^2.1.7",
+    "sinon": "^1.17.4",
+    "sinon-chrome": "^1.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",
